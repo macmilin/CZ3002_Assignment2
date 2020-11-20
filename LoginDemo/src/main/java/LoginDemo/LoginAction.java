@@ -10,7 +10,7 @@ public class LoginAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		msg = db.getUser(username, pass); //change name to the sql function
-		if (msg.startsWith("Sorry")) {
+		if (msg.startsWith("Failed")) {
 			return "FAILURE";
 		} else {
 			return "SUCCESS";

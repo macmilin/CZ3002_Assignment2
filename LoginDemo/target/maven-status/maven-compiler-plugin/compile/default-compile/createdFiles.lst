@@ -1,2 +1,2 @@
-LoginDemo\LoginAction.class
-LoginDemo\DBConnector.class
+LoginDemo/DBConnector.class
+LoginDemo/LoginAction.class

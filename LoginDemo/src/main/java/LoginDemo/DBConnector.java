@@ -8,12 +8,13 @@ import java.sql.Types;
 public class DBConnector {
 	public Connection connection() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/websparrow", "root", ""); //change as needed
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ase_db", "root", "Nicco6199$");
+		return conn; //change as needed
 	}
 
 	public String getUser(String user_name, String user_pass) { //change as needed
 		try {
-			CallableStatement cs = connection().prepareCall("{call getUser(?,?,?)}");
+			CallableStatement cs = connection().prepareCall("{call user_auth(?,?,?)}");
 			cs.setString(1, user_name);
 			cs.setString(2, user_pass);
 			cs.registerOutParameter(3, Types.VARCHAR);
